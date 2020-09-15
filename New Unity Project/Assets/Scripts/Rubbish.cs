@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rubbish : MonoBehaviour
 {
+    public Sprite[] sprites;
+
     private Transform character;
     public bool carried;
     public bool hidden;
@@ -21,6 +23,9 @@ public class Rubbish : MonoBehaviour
     private void Start()
     {
         CallbackHandler.instance.globalInfo.AddRubbish(this);
+
+        int rand = Random.Range(0, sprites.Length);
+        spriteRenderer.sprite = sprites[rand];
     }
     #endregion Setup
 
@@ -56,7 +61,6 @@ public class Rubbish : MonoBehaviour
     {
         CallbackHandler.instance.globalInfo.RemoveRubbish(this);
         spriteRenderer.enabled = false;
-        //Destroy(this.gameObject);
     }
 
     public void Setup()

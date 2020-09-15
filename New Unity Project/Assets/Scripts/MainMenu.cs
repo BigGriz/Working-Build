@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     int index = 0;
     public GameObject mainMenuImage;
     public GameObject controlsMenuImage;
+    public Fader fader;
 
     private void Start()
     {
@@ -31,9 +32,9 @@ public class MainMenu : MonoBehaviour
             mainMenuImage.SetActive(false);
             controlsMenuImage.SetActive(true);
         }
-        else
+        else if (index == 2)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("WorkingScene");
+            fader.ChangeLevel("WorkingScene");  
         }
-    }
+    } 
 }

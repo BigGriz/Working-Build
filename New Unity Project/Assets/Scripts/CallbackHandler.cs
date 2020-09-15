@@ -23,6 +23,7 @@ public class CallbackHandler : MonoBehaviour
     #endregion Singleton
 
     public GlobalInfo globalInfo;
+    public Fader fader;
 
     private void Start()
     {
@@ -46,15 +47,8 @@ public class CallbackHandler : MonoBehaviour
     public void EndGame()
     {
         SetGGText(globalInfo.CheckWin());
-        // TEMP RESTART
-        Invoke("NextLevel", 2.5f);
+        fader.ChangeLevel("End");
     }
-
-    public void NextLevel()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-    }
-
 
     public event Action spawnTrash;
     public void SpawnTrash()
