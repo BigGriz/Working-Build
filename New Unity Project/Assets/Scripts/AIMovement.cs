@@ -164,6 +164,10 @@ public class AIMovement : MonoBehaviour
             // Move
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
             cc.UpdateCol(direction);
+            if (direction != Vector2.zero)
+            {
+                GetComponent<SpriteRenderer>().flipX = !(direction.x < 0);
+            }
             Vector2 newPos = rb.position + direction * speed * Time.fixedDeltaTime;
             rb.MovePosition(newPos);
             // Next Waypoint

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // Input
     float horizontalInput;
     float verticalInput;
-    Vector2 inputVector = Vector2.zero;
+    [HideInInspector] public Vector2 inputVector = Vector2.zero;
     public Vector3 xOffset = new Vector3(0.32f, 0.0f, 0.0f);
     // Rubbish
     public List<Rubbish> rubbishList;
@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
         inputVector = new Vector2(horizontalInput, verticalInput);
         inputVector = inputVector.normalized;
+
+        if (inputVector != Vector2.zero)
+        {
+            GetComponent<SpriteRenderer>().flipX = (inputVector.x < 0);
+        }
 
         // Set Idle or Moving
         if (inputVector == Vector2.zero)
@@ -91,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Rubbish n in rubbishList)
         {
-            if (Vector2.Distance(n.transform.position, transform.position + xOffset) < dist)
+            if (Vector2.Distance(n.transform.position, transform.position + Mathf.Sign(inputVector.x) * xOffset) < dist)
             {
                 temp = n;
                 dist = Vector2.Distance(n.transform.position, transform.position);

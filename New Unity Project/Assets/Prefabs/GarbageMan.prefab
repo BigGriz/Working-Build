@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4062781814204764770}
   - component: {fileID: 4062781814204764774}
   - component: {fileID: 1222188425484087391}
+  - component: {fileID: 2786850423583000075}
   m_Layer: 0
   m_Name: GarbageMan
   m_TagString: Untagged
@@ -224,3 +225,16 @@ MonoBehaviour:
   walkSpeed: 1
   idleSpeed: 0
   chaseTimer: 0
+--- !u!114 &2786850423583000075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062781814204764782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2fafc59ad94514ea15e3417a82242f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 4062781814204764769}

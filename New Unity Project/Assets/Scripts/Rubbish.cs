@@ -33,7 +33,7 @@ public class Rubbish : MonoBehaviour
     {
         if (carried)
         {
-            transform.position = character.transform.position + xOffset;
+            transform.position = character.transform.position + xOffset * Mathf.Sign(character.GetComponent<PlayerMovement>().inputVector.x);
         }
     }
 

@@ -390,29 +390,6 @@ Transform:
   m_Father: {fileID: 1773240864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1097833740 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4062781814204764782, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
-  m_PrefabInstance: {fileID: 4062781814661226953}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1097833744 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4062781814204764769, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
-  m_PrefabInstance: {fileID: 4062781814661226953}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1097833750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097833740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b2fafc59ad94514ea15e3417a82242f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collider: {fileID: 1097833744}
 --- !u!1 &1104671007
 GameObject:
   m_ObjectHideFlags: 0
