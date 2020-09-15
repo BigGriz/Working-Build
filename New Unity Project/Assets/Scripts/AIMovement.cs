@@ -8,6 +8,7 @@ public class AIMovement : MonoBehaviour
     public Transform target;
     public Rubbish carriedItem;
     public Transform trashCan;
+    public IdlePositions idlePos;
 
     public bool chasing;
     public float speed = 1.0f;
@@ -16,7 +17,6 @@ public class AIMovement : MonoBehaviour
     public float chaseSpeed;
     public float walkSpeed;
     public float idleSpeed;
-
 
     public float chaseTimer = 0.0f;
 
@@ -61,7 +61,7 @@ public class AIMovement : MonoBehaviour
     public void FixedUpdate()
     {
         // No Path
-        if (path == null)
+        if (path == null && target)
         {
             speed = idleSpeed;
             ChangeAnimState();
@@ -99,7 +99,19 @@ public class AIMovement : MonoBehaviour
             else if (target.GetComponent<PlayerMovement>())
             {
                 if (target.GetComponent<PlayerMovement>().hidden)
+                {
+                    if (allowMovement && chasing)
+                    {
+                        animator.SetTrigger("Question");
+                        AudioController.instance.PlaySFX(0);
+
+                        allowMovement = false;
+                        chasing = false;
+                        target = null;
+                    }
+                    speed = idleSpeed;
                     return;
+                }
             }
         }
 
@@ -140,6 +152,11 @@ public class AIMovement : MonoBehaviour
                 {
                     trashCan.GetComponent<Trashcan>().AddRubbish(carriedItem);
                     carriedItem = null;
+                    target = GetTarget();
+                    AudioController.instance.PlaySFX(1);
+                }
+                else
+                {
                     target = GetTarget();
                 }
 
@@ -201,6 +218,25 @@ public class AIMovement : MonoBehaviour
                     dist = Vector2.Distance(n.transform.position, transform.position);
                 }
             }
+        }
+        
+        // No Rubbish
+        if (temp == null)
+        {
+            // Check if one is being carried by raccoon
+            foreach (Rubbish n in globalInfo.rubbishList)
+            {
+                if (n.carried && !n.hidden)
+                {
+                    temp = n.transform;
+                }
+            }
+        }
+
+        // Still no rubbish (all in bin or burrow)
+        if (temp == null)
+        {
+            temp = idlePos.GetIdlePosition();
         }
 
         return (temp);
@@ -278,7 +314,7 @@ public class AIMovement : MonoBehaviour
         // If Player is in Radius
         if (player)
         {
-            if (player.carriedItem)
+            if (player.carriedItem && !player.hidden)
             {
                 if (!chasing)
                 {

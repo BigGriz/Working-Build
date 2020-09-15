@@ -159,9 +159,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.50982225, y: 0}
+  m_Offset: {x: -0.66772735, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6032344
+  m_Radius: 0.9265636
 --- !u!114 &4062781814204764770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   target: {fileID: 0}
   carriedItem: {fileID: 0}
   trashCan: {fileID: 0}
+  idlePos: {fileID: 0}
   chasing: 0
   speed: 1
   allowMovement: 1
