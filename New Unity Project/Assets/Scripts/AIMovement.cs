@@ -60,6 +60,9 @@ public class AIMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (CallbackHandler.instance.globalInfo.gamePaused)
+            return;
+
         // No Path
         if (path == null && target)
         {

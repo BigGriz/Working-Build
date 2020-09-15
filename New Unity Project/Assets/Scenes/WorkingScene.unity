@@ -299,6 +299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioController
       objectReference: {fileID: 0}
+    - target: {fileID: 4618207909299694241, guid: 2da51b0f146e1ec4d89c45d294aa70b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4618207911101550700, guid: 2da51b0f146e1ec4d89c45d294aa70b5, type: 3}
       propertyPath: sfxTracks.Array.size
       value: 2
@@ -5348,6 +5352,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 173162371078657361, guid: 7aca12d18fbbd324387fef28c26b798c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 173162371078657361, guid: 7aca12d18fbbd324387fef28c26b798c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7369433861865161404, guid: 7aca12d18fbbd324387fef28c26b798c, type: 3}
       propertyPath: m_Name
       value: UI

@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     // Get Input
     private void Update()
     {
+        if (CallbackHandler.instance.globalInfo.gamePaused)
+            return;
+
         // Get Current Input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -114,6 +117,9 @@ public class PlayerMovement : MonoBehaviour
     // Move Character
     private void FixedUpdate()
     {
+        if (CallbackHandler.instance.globalInfo.gamePaused)
+            return;
+
         Vector2 currentPos = rb.position;
         Vector2 newPos = currentPos + inputVector * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPos);
