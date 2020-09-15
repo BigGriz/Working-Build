@@ -119,7 +119,7 @@ public class AIMovement : MonoBehaviour
                 player.carriedItem = null;
                 carriedItem.CarryMe(this.transform);
                 AudioController.instance.QuickFadeToBGM();
-
+                AudioController.instance.PlaySFX(1);
                 // GoTo Trashcan
                 target = trashCan;
                 currentWaypoint = 0;
@@ -240,10 +240,10 @@ public class AIMovement : MonoBehaviour
                     carriedItem = null;
                 }
                 // Chase TrashPanda
+                AudioController.instance.PlayChase();
                 target = player.transform;
                 chasing = true;
                 chaseTimer = 3.0f;
-                AudioController.instance.PlayBGM(1);
             }
             if (target == player.transform && !player.carriedItem)
             {
@@ -274,6 +274,7 @@ public class AIMovement : MonoBehaviour
                 if (!chasing)
                 {
                     animator.SetTrigger("Alert");
+                    AudioController.instance.PlaySFX(0);
                     allowMovement = false;
                     speed = idleSpeed;
                 }

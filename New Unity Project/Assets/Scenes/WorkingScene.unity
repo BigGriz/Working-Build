@@ -5230,6 +5230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GarbageMan
       objectReference: {fileID: 0}
+    - target: {fileID: 8350027681334163683, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
 --- !u!1001 &5290010440958260855

@@ -5,47 +5,52 @@ using UnityEngine;
 public class BGM : MonoBehaviour
 {
     #region Setup
-    AudioSource audio;
+    public AudioSource[] audio;
     int currentID;
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();        
+        audio = GetComponents<AudioSource>();        
     }
     #endregion Setup
-
-    public AudioClip[] bgmTracks;
-
-    public void PlayTrack(int _id)
+    
+    public void PlayChaseMusic()
     {
-        if (currentID != _id)
-        {
-            currentID = _id;
-            audio.Stop();
-            audio.PlayOneShot(bgmTracks[_id]);
-        }
-
-
+        // Play Sounds
+        audio[1].Play();
+        audio[1].volume = 1.0f;
+        // Fadeout BGM
+        StartCoroutine(FadeOut(0.1f, 0));
     }
 
     public void FadeToBGM(float _time)
     {
-        StartCoroutine(FadeOut(_time));
+        // Fadeout Chase
+        StartCoroutine(FadeOut(_time, 1));
+        // Fadein BGM
+        StartCoroutine(FadeIn(_time, 0));
     }
 
-    public IEnumerator FadeOut(float FadeTime)
+    public IEnumerator FadeOut(float FadeTime, int _source)
     {
-        float startVolume = audio.volume;
+        float startVolume = audio[_source].volume;
 
-        while (audio.volume > 0)
+        while (audio[_source].volume > 0)
         {
-            audio.volume -= startVolume * Time.deltaTime / FadeTime;
+            audio[_source].volume -= startVolume * Time.deltaTime / FadeTime;
 
             yield return null;
         }
+    }
 
-        audio.Stop();
-        audio.volume = startVolume;
+    public IEnumerator FadeIn(float FadeTime, int _source)
+    {
+        float startVolume = audio[_source].volume;
 
-        PlayTrack(0);
+        while (audio[_source].volume < 1.0f)
+        {
+            audio[_source].volume += (1.0f - startVolume) * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
     }
 }

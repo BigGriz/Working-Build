@@ -6,6 +6,7 @@ public class SFX : MonoBehaviour
 {
     #region Setup
     AudioSource audio;
+    int id;
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
@@ -16,6 +17,10 @@ public class SFX : MonoBehaviour
 
     public void PlayTrack(int _id)
     {
-        audio.PlayOneShot(sfxTracks[_id]);
+        if (!audio.isPlaying || id != _id)
+        {
+            id = _id;
+            audio.PlayOneShot(sfxTracks[_id]);
+        }
     }
 }

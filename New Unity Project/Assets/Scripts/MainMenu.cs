@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             NextScreen();
+            AudioController.instance.PlaySFX(1);
         }
     }
 

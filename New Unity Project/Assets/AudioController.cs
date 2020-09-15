@@ -26,9 +26,9 @@ public class AudioController : MonoBehaviour
     }
     #endregion Singleton
 
-    public void PlayBGM(int _id)
+    public void PlayChase()
     {
-        bgm.PlayTrack(_id);
+        bgm.PlayChaseMusic();
     }
 
     public void PlaySFX(int _id)
@@ -42,6 +42,6 @@ public class AudioController : MonoBehaviour
     }
     public void QuickFadeToBGM()
     {
-        bgm.FadeToBGM(0.5f);
+        bgm.FadeToBGM(0.1f);
     }
 }
