@@ -97,6 +97,7 @@ public class AIMovement : MonoBehaviour
                 target = GetTarget();
                 currentWaypoint = 0;
                 UpdatePath();
+                AudioController.instance.FadeToBGM();
             }
             else if (target.GetComponent<PlayerMovement>())
             {
@@ -117,6 +118,7 @@ public class AIMovement : MonoBehaviour
                 carriedItem = player.carriedItem;
                 player.carriedItem = null;
                 carriedItem.CarryMe(this.transform);
+                AudioController.instance.QuickFadeToBGM();
 
                 // GoTo Trashcan
                 target = trashCan;
@@ -241,6 +243,7 @@ public class AIMovement : MonoBehaviour
                 target = player.transform;
                 chasing = true;
                 chaseTimer = 3.0f;
+                AudioController.instance.PlayBGM(1);
             }
             if (target == player.transform && !player.carriedItem)
             {

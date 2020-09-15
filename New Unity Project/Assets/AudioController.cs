@@ -35,4 +35,13 @@ public class AudioController : MonoBehaviour
     {
         sfx.PlayTrack(_id);
     }
+
+    public void FadeToBGM()
+    {
+        bgm.FadeToBGM(3.0f);
+    }
+    public void QuickFadeToBGM()
+    {
+        bgm.FadeToBGM(0.5f);
+    }
 }
