@@ -6,10 +6,12 @@ using UnityEngine;
 public class GlobalInfo : ScriptableObject
 {
     public List<Rubbish> rubbishList;
+    public int trashCollected;
 
     public void ClearList()
     {
         rubbishList.Clear();
+        trashCollected = 0;
     }
 
     public void AddRubbish(Rubbish _rubbish)
@@ -20,5 +22,10 @@ public class GlobalInfo : ScriptableObject
     public void RemoveRubbish(Rubbish _rubbish)
     {
         rubbishList.Remove(_rubbish);
+    }
+
+    public void CollectTrash()
+    {
+        trashCollected++;
     }
 }

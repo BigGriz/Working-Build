@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Burrow : MonoBehaviour
 {
-    public List<Rubbish> rubbish;
-
     private void Start()
     {
         CallbackHandler.instance.storeTrash += StoreTrash;
@@ -18,8 +16,9 @@ public class Burrow : MonoBehaviour
 
     public void StoreTrash(Rubbish _rubbish)
     {
-        rubbish.Add(_rubbish);
+        CallbackHandler.instance.globalInfo.CollectTrash();
         _rubbish.CleanUp();
+        Destroy(_rubbish.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

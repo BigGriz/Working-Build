@@ -32,6 +32,7 @@ public class CallbackHandler : MonoBehaviour
     public void StartUpCalls()
     {
         SpawnTrash();
+        SetTrashText();
     }
 
     private void Update()
@@ -67,6 +68,16 @@ public class CallbackHandler : MonoBehaviour
         if (storeTrash != null)
         {
             storeTrash(_rubbish);
+            SetTrashText();
+        }
+    }
+
+    public event Action<int> setTrashText;
+    public void SetTrashText()
+    {
+        if (setTrashText != null)
+        {
+            setTrashText(globalInfo.trashCollected);
         }
     }
 }
