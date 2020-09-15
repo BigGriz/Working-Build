@@ -5,15 +5,17 @@ using UnityEngine;
 public class StartLevel : MonoBehaviour
 {
     Animator animator;
+    TMPro.TextMeshProUGUI text;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();                      
+        animator = GetComponent<Animator>();
+        text = GetComponent<TMPro.TextMeshProUGUI>();
     }
 
     private void Start()
     {
-        animator.SetTrigger("Start");
+        //text.SetText(CallbackHandler.instance.globalInfo.currentLevel.ToString());
     }
 
     public void StartUp()
