@@ -69,7 +69,10 @@ public class PlayerMovement : MonoBehaviour
             else if (!carriedItem && inRange)
             {
                 CallbackHandler.instance.TakeTrash();
-                audio.Play();
+                if (carriedItem)
+                {
+                    audio.Play();
+                }
             }
             else if (carriedItem)
             {
