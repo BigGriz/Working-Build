@@ -77,11 +77,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     CallbackHandler.instance.StoreTrash(carriedItem);
                     audio.Play();
+                    AudioController.instance.FadeToBGM();
                 }
                 else
                 {
                     carriedItem.DropMe();
                     audio.Play();
+                    AudioController.instance.FadeToBGM();
                 }
                 carriedItem = null;
             }

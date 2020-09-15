@@ -33,7 +33,14 @@ public class Rubbish : MonoBehaviour
     {
         if (carried)
         {
-            transform.position = character.transform.position + xOffset * Mathf.Sign(character.GetComponent<PlayerMovement>().inputVector.x);
+            if (character.GetComponent<SpriteRenderer>().flipX)
+            {
+                transform.position = character.transform.position + xOffset * -1;
+            }
+            else
+            {
+                transform.position = character.transform.position + xOffset;
+            }
         }
     }
 

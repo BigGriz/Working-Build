@@ -5166,6 +5166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2465040239027195340, guid: 92b7bf47214776544b3e9ea11edf51de, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4589137680363918430, guid: 92b7bf47214776544b3e9ea11edf51de, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -5251,6 +5255,10 @@ PrefabInstance:
     - target: {fileID: 4062781814204764769, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
       propertyPath: m_Radius
       value: 0.9265636
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062781814204764771, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4062781814204764775, guid: 38f24446a9aecea4ea84a56eb431be0a, type: 3}
       propertyPath: m_LocalPosition.x
