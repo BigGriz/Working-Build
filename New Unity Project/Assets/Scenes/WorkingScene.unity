@@ -489,7 +489,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4570,9 +4570,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023126245, y: 1.6366124}
+  m_Offset: {x: -0.023126245, y: 2.5093637}
   serializedVersion: 2
-  m_Radius: 0.23180771
+  m_Radius: 0.29449177
 --- !u!60 &1215103655
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5231,7 +5231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771671828619267578, guid: de131d545419db544892cfb69e46bfc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.68
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8771671828619267578, guid: de131d545419db544892cfb69e46bfc0, type: 3}
       propertyPath: m_LocalPosition.z
