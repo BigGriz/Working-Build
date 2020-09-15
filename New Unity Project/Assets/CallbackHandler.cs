@@ -43,6 +43,18 @@ public class CallbackHandler : MonoBehaviour
         }
     }
 
+    public void EndGame()
+    {
+        SetGGText(globalInfo.CheckWin());
+        // TEMP RESTART
+        Invoke("NextLevel", 2.5f);
+    }
+
+    public void NextLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
 
     public event Action spawnTrash;
     public void SpawnTrash()
@@ -78,6 +90,22 @@ public class CallbackHandler : MonoBehaviour
         if (setTrashText != null)
         {
             setTrashText(globalInfo.trashCollected);
+        }
+    }
+
+    public event Action<string> setGGText;
+    public void SetGGText(bool _GG)
+    {
+        if (setGGText != null)
+        {
+            if (_GG)
+            {
+                setGGText("You Win!");
+            }
+            else
+            {
+                setGGText("You Lose!");
+            }
         }
     }
 }

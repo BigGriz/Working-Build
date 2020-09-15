@@ -7,6 +7,7 @@ public class GlobalInfo : ScriptableObject
 {
     public List<Rubbish> rubbishList;
     public int trashCollected;
+    public int totalTrash;
 
     public void ClearList()
     {
@@ -27,5 +28,16 @@ public class GlobalInfo : ScriptableObject
     public void CollectTrash()
     {
         trashCollected++;
+
+        // EndGame once collected 3+ trash
+        if (CheckWin())
+        {
+            CallbackHandler.instance.EndGame();
+        }
+    }
+
+    public bool CheckWin()
+    {
+        return (trashCollected >= 3);
     }
 }

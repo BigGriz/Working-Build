@@ -18,9 +18,13 @@ public class Timer : MonoBehaviour
         if (timer >= 1.0f)
         {
             timer -= Time.deltaTime;
+            text.SetText(Mathf.FloorToInt(timer).ToString());
         }
-        text.SetText(Mathf.FloorToInt(timer).ToString());
-
-        // Call EndGame Here
+        else
+        {
+            text.SetText(Mathf.FloorToInt(timer).ToString());
+            // Call end of game
+            CallbackHandler.instance.EndGame();
+        }
     }
 }
