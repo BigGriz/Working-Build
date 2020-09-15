@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public enum AnimState
-{
-
-}
-
 public class AIMovement : MonoBehaviour
 {
     public Transform target;
@@ -30,6 +25,7 @@ public class AIMovement : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     Animator animator;
+    ColliderController cc;
 
     float nextWaypointDistance = 0.13f;
     Path path;
@@ -41,6 +37,7 @@ public class AIMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        cc = GetComponent<ColliderController>();
     }
 
     private void Start()
@@ -166,6 +163,7 @@ public class AIMovement : MonoBehaviour
         {
             // Move
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            cc.UpdateCol(direction);
             Vector2 newPos = rb.position + direction * speed * Time.fixedDeltaTime;
             rb.MovePosition(newPos);
             // Next Waypoint
@@ -240,10 +238,17 @@ public class AIMovement : MonoBehaviour
                     carriedItem = null;
                 }
                 // Chase TrashPanda
-                AudioController.instance.PlayChase();
+                if (chasing)
+                {
+                    AudioController.instance.PlayChase(true);
+                }
+                else
+                {
+                    AudioController.instance.PlayChase(false);
+                }
                 target = player.transform;
                 chasing = true;
-                chaseTimer = 3.0f;
+                chaseTimer = 5.0f;
             }
             if (target == player.transform && !player.carriedItem)
             {
@@ -259,7 +264,7 @@ public class AIMovement : MonoBehaviour
         // If Player is in Radius
         if (player)
         {
-            chaseTimer = 3.0f;
+            chaseTimer = 5.0f;
         }
     }
 
@@ -277,9 +282,18 @@ public class AIMovement : MonoBehaviour
                     AudioController.instance.PlaySFX(0);
                     allowMovement = false;
                     speed = idleSpeed;
+
+                    if (chasing)
+                    {
+                        AudioController.instance.PlayChase(true);
+                    }
+                    else
+                    {
+                        AudioController.instance.PlayChase(false);
+                    }
                 }
 
-                chaseTimer = 3.0f;
+                chaseTimer = 5.0f;
                 chasing = true;
             }
         }

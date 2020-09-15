@@ -26,9 +26,9 @@ public class AudioController : MonoBehaviour
     }
     #endregion Singleton
 
-    public void PlayChase()
+    public void PlayChase(bool _inChase)
     {
-        bgm.PlayChaseMusic();
+        bgm.PlayChaseMusic(_inChase);
     }
 
     public void PlaySFX(int _id)

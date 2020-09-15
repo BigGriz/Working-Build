@@ -13,10 +13,14 @@ public class BGM : MonoBehaviour
     }
     #endregion Setup
     
-    public void PlayChaseMusic()
+    public void PlayChaseMusic(bool _inChase)
     {
-        // Play Sounds
-        audio[1].Play();
+        if (!audio[1].isPlaying || !_inChase)
+        {
+            // Play Sounds
+            audio[1].Stop();
+            audio[1].Play();
+        }
         audio[1].volume = 1.0f;
         // Fadeout BGM
         StartCoroutine(FadeOut(0.1f, 0));
