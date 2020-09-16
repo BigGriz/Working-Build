@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EndMenu : MonoBehaviour
 {
+    [Header("Required Fields")]
     public Fader fader;
     public GameObject thanks;
     public GameObject endNotice;
-    public int index = 0;
+    int index = 0;
 
     private void Start()
     {

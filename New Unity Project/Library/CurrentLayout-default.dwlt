@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Hierarchy
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 137
+  controlID: 21
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 553
     height: 1307
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1357
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 88
+  controlID: 46
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 89
+  controlID: 47
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -313,12 +313,12 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Characters/Raccoon/Spritesheet
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Characters/Raccoon/Spritesheet
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Griz\Desktop\GameJam\WorkPlz\Working Build\New Unity
     Project
@@ -326,9 +326,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: cc4e0000
-    m_LastClickedID: 20172
-    m_ExpandedIDs: 00000000f84d0000fa4d0000fc4d0000fe4d0000004e0000024e0000044e0000064e000000ca9a3b
+    m_SelectedIDs: 8e4e0000
+    m_LastClickedID: 20110
+    m_ExpandedIDs: 00000000fa4d0000fc4d0000fe4d0000004e0000024e0000044e0000064e0000084e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -356,7 +356,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f84d0000fa4d0000fc4d0000fe4d0000004e0000024e0000044e0000064e0000
+    m_ExpandedIDs: 00000000fa4d0000fc4d0000fe4d0000004e0000024e0000044e0000064e0000084e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -480,7 +480,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0682ffff1e82ffff0e83ffff2083ffffe484ffffa886ffff6c88ffffa68affffac8affff228effff7e90fffff4a1ffffaea2fffffca2ffff18a9ffff92a9ffff08aaffff20aaffff0eabffff20abffffe4acffffa8aeffff6cb0ffffa6b2ffffacb2ffffd4c3ffffecc9ffff88caffffeccdffff2cd7ffff6cf4ffff56fbffff1c890000
+      m_ExpandedIDs: 683affff803affff723bffff843bffff483dffff0c3fffffd040ffff0a43ffff1043ffff6c46ffffc24bffffbe80ffffd084fffffa84ffff0a94ffff6a9dffff64daffffc2dcffff62ddffff7ee4ffffd8e5ffff72e7ffff0afbffff6c800000bc800000a0810000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -733,7 +733,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 863
-    width: 2040
+    width: 2006
     height: 496
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &18

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Fader : MonoBehaviour
 {
+    #region Setup
     Animator animator;
     string level;
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
+    #endregion Setup
 
     // Start is called before the first frame update
     void Start()

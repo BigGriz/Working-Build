@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ColliderController : MonoBehaviour
 {
+    [Header("Required Fields")]
     public CircleCollider2D collider;
-
     public void UpdateCol(Vector2 dir)
     {
         if (dir != Vector2.zero)

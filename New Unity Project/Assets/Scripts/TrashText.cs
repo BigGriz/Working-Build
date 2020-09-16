@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TrashText : MonoBehaviour
 {
+    #region Setup
     TMPro.TextMeshProUGUI text;
-
     private void Awake()
     {
         text = GetComponent<TMPro.TextMeshProUGUI>();
     }
-
+    #endregion Setup
+    #region Callbacks
     private void Start()
     {
         CallbackHandler.instance.setTrashText += SetText;
@@ -20,6 +21,7 @@ public class TrashText : MonoBehaviour
     {
         CallbackHandler.instance.setTrashText -= SetText;
     }
+    #endregion Callbacks
 
     public void SetText(int _trash)
     {

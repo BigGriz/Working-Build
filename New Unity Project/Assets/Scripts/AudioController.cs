@@ -6,7 +6,7 @@ public class AudioController : MonoBehaviour
 {
     #region Singleton
     public static AudioController instance;
-    public BGM bgm;
+    [HideInInspector] public BGM bgm;
     SFX sfx;
     private void Awake()
     {

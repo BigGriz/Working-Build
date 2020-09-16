@@ -12,8 +12,7 @@ public class BGM : MonoBehaviour
         audio = GetComponents<AudioSource>();        
     }
     #endregion Setup
-
-    public bool final;
+    [HideInInspector] public bool final;
 
     public void PlayChaseMusic(bool _inChase)
     {
@@ -45,6 +44,7 @@ public class BGM : MonoBehaviour
         StartCoroutine(FadeOut(3.0f, 0));
     }
 
+    #region Coroutines
     public IEnumerator FadeOut(float FadeTime, int _source)
     {
         float startVolume = audio[_source].volume;
@@ -66,7 +66,7 @@ public class BGM : MonoBehaviour
             audio[_source].volume += (1.0f - startVolume) * Time.deltaTime / FadeTime;
 
             yield return null;
-        }
-        
+        }     
     }
+    #endregion Coroutines
 }

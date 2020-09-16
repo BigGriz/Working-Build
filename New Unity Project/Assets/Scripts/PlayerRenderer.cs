@@ -20,6 +20,7 @@ public class PlayerRenderer : MonoBehaviour
 
     private void Update()
     {
+        // Transparency Sort Order
         if (obj != null)
         {
             if (transform.position.y > obj.transform.position.y)
@@ -34,6 +35,7 @@ public class PlayerRenderer : MonoBehaviour
             }
         }
 
+        // Character Sort Order
         if (character != null)
         {
             if (transform.position.y > character.transform.position.y)
@@ -85,6 +87,7 @@ public class PlayerRenderer : MonoBehaviour
     }
     #endregion Triggers
 
+    // Enable Movement for AI Player at end of Animation
     public void AllowMovement()
     {
         AIMovement garbageMan = GetComponentInParent<AIMovement>();

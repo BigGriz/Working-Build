@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - GlobalInfo
     - Glow
     - IdlePositions
+    - LoseMenu
     - MainMenu
     - PlayerMovement
     - PlayerRenderer
@@ -45,6 +46,15 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - TimelinePreferences
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -613,8 +623,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
       Script: {instanceID: 14078}
     - Class: 114
       Script: {instanceID: 14154}
@@ -624,6 +632,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14578}
     - Class: 114
       Script: {instanceID: 15282}
+    - Class: 114
+      Script: {instanceID: 33004}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -994,7 +1004,7 @@ ScriptsOnlyBuild:
     className: SpriteShape
   - hash:
       serializedVersion: 2
-      Hash: 0e697dc1f9995d7f00666b49facea418
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FollowCamera
@@ -1006,7 +1016,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: c9c4d2d12c8b8b6e8173c4140c72c3b5
+      Hash: fb8471a0acd45b857013ae4371c2008a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1024,13 +1034,13 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 8d1e4b138451903b9f31e349034732e9
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Timer
   - hash:
       serializedVersion: 2
-      Hash: 449c7ac2db6585f2d501199668500762
+      Hash: 134e64a9074d30061e5b073860d1a596
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rubbish
@@ -1060,7 +1070,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: b64f22839b9fe511015d69be4eaa4268
+      Hash: 7db64ce58b29219533d1627001e27532
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Trashcan
@@ -1078,7 +1088,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: de9de1d7e11b9b998af79f2b32c14478
+      Hash: e46d8c11c2bc142ead5fa0c3b6ede907
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EndMenu
@@ -1162,7 +1172,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: c473a5e354a70581a498a394d0697b8b
+      Hash: c5cdf58f81b3851c4a1a29e32e40ba8f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TrashSpawner
@@ -1258,7 +1268,7 @@ ScriptsOnlyBuild:
     className: Fader
   - hash:
       serializedVersion: 2
-      Hash: e4f4076a63c7e9f48ab5c5c5683b2b56
+      Hash: d2564a17d3098ab0e93687d12df37ed6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AIMovement
@@ -1532,6 +1542,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cdff62dcbe825742fa4234211100ff6c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LoseMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity

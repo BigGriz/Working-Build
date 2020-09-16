@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class EnergyMeter : MonoBehaviour
 {
+    [Header("Required Fields")]
     public Image energy;
     public Image cooldown;
+    #region Setup
     PlayerMovement player;
-
     private void Start()
     {
         player = PlayerMovement.instance;
     }
+    #endregion Setup
 
     // Update is called once per frame
     void Update()

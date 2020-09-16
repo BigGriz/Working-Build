@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
-    Animator animator;
+    #region Setup
     TMPro.TextMeshProUGUI text;
-
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         text = GetComponent<TMPro.TextMeshProUGUI>();
     }
+    #endregion Setup
 
     private void Start()
     {
+        // Set Startup Text
         text.SetText("LOCKDOWN LEVEL " + CallbackHandler.instance.globalInfo.lockdownLevel.ToString());
     }
 

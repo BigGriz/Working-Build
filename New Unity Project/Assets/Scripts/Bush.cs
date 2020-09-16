@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bush : MonoBehaviour
 {
+    #region Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
@@ -33,4 +34,5 @@ public class Bush : MonoBehaviour
             rubbish.hidden = false;
         }
     }
+    #endregion Triggers
 }

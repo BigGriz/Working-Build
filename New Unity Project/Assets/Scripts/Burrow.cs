@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Burrow : MonoBehaviour
 {
+    #region Callbacks
     private void Start()
     {
         CallbackHandler.instance.storeTrash += StoreTrash;
@@ -13,6 +14,7 @@ public class Burrow : MonoBehaviour
     {
         CallbackHandler.instance.storeTrash -= StoreTrash;
     }
+    #endregion Callbacks
 
     public void StoreTrash(Rubbish _rubbish)
     {
@@ -21,6 +23,7 @@ public class Burrow : MonoBehaviour
         Destroy(_rubbish.gameObject);
     }
 
+    #region Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
@@ -40,4 +43,5 @@ public class Burrow : MonoBehaviour
             player.atBurrow = false;
         }
     }
+    #endregion Triggers
 }

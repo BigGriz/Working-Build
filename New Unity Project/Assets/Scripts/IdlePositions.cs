@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdlePositions : MonoBehaviour
 {
-    public List<Transform> idlePositions;
+    [HideInInspector] public List<Transform> idlePositions;
 
     #region Callbacks
     // Start is called before the first frame update

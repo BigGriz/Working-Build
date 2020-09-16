@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EndGameText : MonoBehaviour
 {
+    #region Setup
     TMPro.TextMeshProUGUI text;
-
     private void Awake()
     {
         text = GetComponent<TMPro.TextMeshProUGUI>();
     }
-
+    #endregion Setup
+    #region Callbacks
     private void Start()
     {
         CallbackHandler.instance.setGGText += SetText;
@@ -20,6 +21,7 @@ public class EndGameText : MonoBehaviour
     {
         CallbackHandler.instance.setGGText -= SetText;
     }
+    #endregion Callbacks
 
     public void SetText(string _gg)
     {

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Glow : MonoBehaviour
 {
+    #region Setup
     SpriteRenderer spriteRenderer;
     Color color;
-
-    public int objStage;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         color = spriteRenderer.color;
     }
+    #endregion Setup
 
+    public int objStage;
 
     // Update is called once per frame
     void Update()
     {
+        // Glow Objective
         if (CallbackHandler.instance.globalInfo.objStage == objStage)
         {
             color = new Color(color.r, color.g, color.b, Mathf.PingPong(Time.time, 0.5f));

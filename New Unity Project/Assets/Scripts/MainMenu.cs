@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     int index = 0;
+    [Header("Required Fields")]
     public GameObject mainMenuImage;
     public GameObject controlsMenuImage;
     public Fader fader;

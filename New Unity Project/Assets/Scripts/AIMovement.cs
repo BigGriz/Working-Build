@@ -5,22 +5,23 @@ using Pathfinding;
 
 public class AIMovement : MonoBehaviour
 {
-    public Transform target;
-    public Rubbish carriedItem;
+
+    [Header("Required Fields")]
     public Transform trashCan;
     public IdlePositions idlePos;
-
-    public bool chasing;
-    public float speed = 1.0f;
-    public bool allowMovement = true;
-
     public float chaseSpeed;
     public float walkSpeed;
     public float idleSpeed;
 
-    public float chaseTimer = 0.0f;
-    public float pauseTimer;
-    public bool paused;
+    [HideInInspector] public Transform target;
+    [HideInInspector] public Rubbish carriedItem;
+    [HideInInspector] public bool allowMovement = true;
+    bool chasing;
+    float speed = 1.0f;
+
+    [HideInInspector] public float chaseTimer = 0.0f;
+    [HideInInspector] public float pauseTimer;
+    [HideInInspector] public bool paused;
 
     #region Setup
     private GlobalInfo globalInfo;
@@ -316,6 +317,7 @@ public class AIMovement : MonoBehaviour
         }
     }
 
+    #region Triggers
     private void OnTriggerStay2D(Collider2D collision)
     {
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
@@ -392,4 +394,5 @@ public class AIMovement : MonoBehaviour
             }
         }
     }
+    #endregion Triggers
 }

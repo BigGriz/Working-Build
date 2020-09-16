@@ -24,9 +24,11 @@ public class CallbackHandler : MonoBehaviour
     }
     #endregion Singleton
 
+    [Header("Required Fields")]
     public GlobalInfo globalInfo;
     public Fader fader;
 
+    #region StartupCalls
     private void Start()
     {
         Invoke("StartUpCalls", 0.05f);
@@ -42,6 +44,7 @@ public class CallbackHandler : MonoBehaviour
         globalInfo.objStage = 0;
         AudioController.instance.bgm.final = false;
     }
+    #endregion StartupCalls
 
     private void Update()
     {

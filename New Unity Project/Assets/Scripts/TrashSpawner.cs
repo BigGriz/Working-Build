@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
 {
-    public List<Transform> spawnPositions;
+    [Header("Required Fields")]
     public GameObject rubbishPrefab;
+
+    [HideInInspector] public List<Transform> spawnPositions;
 
     #region Callbacks
     // Start is called before the first frame update
