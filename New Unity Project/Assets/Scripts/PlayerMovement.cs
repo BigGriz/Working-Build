@@ -66,12 +66,29 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Check for Input
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
         {
             if (!carriedItem && rubbishList.Count > 0)
             {
                 carriedItem = GetClosest();
-                carriedItem.CarryMe(this.transform);
+                if (carriedItem.carried)
+                {
+                    AIMovement ai = carriedItem.character.GetComponent<AIMovement>();
+
+                    ai.carriedItem = null;
+                    carriedItem.DropMe();
+                    carriedItem.CarryMe(this.transform);
+
+                    AudioController.instance.PlaySFX(3);
+
+                    ai.allowMovement = false;
+                    ai.paused = true;
+                    ai.pauseTimer = 0.5f;
+                }
+                else
+                {
+                    carriedItem.CarryMe(this.transform);
+                }
                 audio.Play();
             }
             else if (!carriedItem && inRange)
@@ -87,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
                 if (atBurrow)
                 {
                     CallbackHandler.instance.StoreTrash(carriedItem);
+                    AudioController.instance.PlaySFX(2);
                     audio.Play();
                     AudioController.instance.FadeToBGM();
                 }

@@ -19,6 +19,8 @@ public class AIMovement : MonoBehaviour
     public float idleSpeed;
 
     public float chaseTimer = 0.0f;
+    public float pauseTimer;
+    public bool paused;
 
     #region Setup
     private GlobalInfo globalInfo;
@@ -56,6 +58,20 @@ public class AIMovement : MonoBehaviour
     public void AllowMovement()
     {
         allowMovement = true;
+    }
+
+    private void Update()
+    {
+        if (paused)
+        {
+            pauseTimer -= Time.deltaTime;
+
+            if (pauseTimer <= 0)
+            {
+                paused = false;
+                AllowMovement();
+            }
+        }
     }
 
     public void FixedUpdate()

@@ -6,7 +6,7 @@ public class Rubbish : MonoBehaviour
 {
     public Sprite[] sprites;
 
-    private Transform character;
+    public Transform character;
     public bool carried;
     public bool hidden;
     [Header("Required Fields")]
@@ -55,7 +55,6 @@ public class Rubbish : MonoBehaviour
         {
             CallbackHandler.instance.globalInfo.objStage = 1;
         }
-
     }
 
     public void DropMe()

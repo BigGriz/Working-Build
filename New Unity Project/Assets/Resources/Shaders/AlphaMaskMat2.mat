@@ -76,5 +76,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeOrigin: {r: -3.8210661, g: -0.29781836, b: -1.8472826, a: 0}
+    - _FadeOrigin: {r: -0.9963024, g: 1.5000314, b: -1.8472826, a: 0}
   m_BuildTextureStacks: []

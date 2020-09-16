@@ -534,14 +534,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4618207911101550700, guid: 2da51b0f146e1ec4d89c45d294aa70b5, type: 3}
-      propertyPath: sfxTracks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618207911101550700, guid: 2da51b0f146e1ec4d89c45d294aa70b5, type: 3}
-      propertyPath: sfxTracks.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 96807b2f8b6afa84889ce25e05bc16ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da51b0f146e1ec4d89c45d294aa70b5, type: 3}
 --- !u!1 &1104671007
