@@ -53,36 +53,42 @@ public class CallbackHandler : MonoBehaviour
     public void EndGame()
     {
         SetGGText(globalInfo.CheckWin());
+        globalInfo.gamePaused = true;
 
+        Invoke("Transition", 3.0f);
+    }
+
+    public void Transition()
+    {
         if (globalInfo.CheckWin())
         {
             switch (globalInfo.lockdownLevel + 1)
             {
                 case 1:
-                {
-                    fader.ChangeLevel("Level1");
-                    break;
-                }
+                    {
+                        fader.ChangeLevel("Level1");
+                        break;
+                    }
                 case 2:
-                {
-                    fader.ChangeLevel("Level2");
-                    break;
-                }
+                    {
+                        fader.ChangeLevel("Level2");
+                        break;
+                    }
                 case 3:
-                {
-                    fader.ChangeLevel("Level3");
-                    break;
-                }
+                    {
+                        fader.ChangeLevel("Level3");
+                        break;
+                    }
                 case 4:
-                {
-                    fader.ChangeLevel("Level4");
-                    break;
-                }
+                    {
+                        fader.ChangeLevel("Level4");
+                        break;
+                    }
                 case 5:
-                {
-                    fader.ChangeLevel("End");
-                    break;
-                }
+                    {
+                        fader.ChangeLevel("End");
+                        break;
+                    }
             }
         }
         else

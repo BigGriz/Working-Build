@@ -12,7 +12,9 @@ public class BGM : MonoBehaviour
         audio = GetComponents<AudioSource>();        
     }
     #endregion Setup
-    
+
+    public bool final;
+
     public void PlayChaseMusic(bool _inChase)
     {
         if (!audio[1].isPlaying || !_inChase)
@@ -30,8 +32,17 @@ public class BGM : MonoBehaviour
     {
         // Fadeout Chase
         StartCoroutine(FadeOut(_time, 1));
-        // Fadein BGM
-        StartCoroutine(FadeIn(_time, 0));
+        if (!final)
+        {
+            // Fadein BGM
+            StartCoroutine(FadeIn(_time, 0));
+        }
+    }
+
+    public void FinalFadeOut()
+    {
+        // Fadeout BGM
+        StartCoroutine(FadeOut(3.0f, 0));
     }
 
     public IEnumerator FadeOut(float FadeTime, int _source)
@@ -56,5 +67,6 @@ public class BGM : MonoBehaviour
 
             yield return null;
         }
+        
     }
 }

@@ -8,9 +8,12 @@ public class Timer : MonoBehaviour
     public float trashTimer = 20.0f;
     TMPro.TextMeshProUGUI text;
 
+    public bool playSound;
+
     private void Awake()
     {
         text = GetComponent<TMPro.TextMeshProUGUI>();
+        playSound = false;
     }
 
     // Update is called once per frame
@@ -18,6 +21,13 @@ public class Timer : MonoBehaviour
     {
         if (CallbackHandler.instance.globalInfo.gamePaused)
             return;
+
+        if (timer <= 15.0f && !playSound)
+        {
+            playSound = true;
+            GetComponent<AudioSource>().Play();
+            AudioController.instance.FinalFadeOut();
+        }
 
         if (timer >= 1.0f)
         {
@@ -34,7 +44,7 @@ public class Timer : MonoBehaviour
         {
             text.SetText(Mathf.FloorToInt(timer).ToString());
             // Call end of game
-            CallbackHandler.instance.EndGame();
-        }
+            CallbackHandler.instance.EndGame();              
+        }        
     }
 }

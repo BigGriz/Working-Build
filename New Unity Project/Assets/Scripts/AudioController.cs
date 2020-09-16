@@ -44,4 +44,9 @@ public class AudioController : MonoBehaviour
     {
         bgm.FadeToBGM(0.1f);
     }
+    public void FinalFadeOut()
+    {
+        bgm.FinalFadeOut();
+        bgm.final = true;
+    }
 }
