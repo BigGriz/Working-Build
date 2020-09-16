@@ -126,10 +126,13 @@ public class AIMovement : MonoBehaviour
             {
                 PlayerMovement player = target.GetComponent<PlayerMovement>();
                 // Swap items with Panda
-                player.carriedItem.DropMe();
-                carriedItem = player.carriedItem;
-                player.carriedItem = null;
-                carriedItem.CarryMe(this.transform);
+                if (carriedItem)
+                {
+                    player.carriedItem.DropMe();
+                    carriedItem = player.carriedItem;
+                    player.carriedItem = null;
+                    carriedItem.CarryMe(this.transform);
+                }
                 AudioController.instance.QuickFadeToBGM();
                 AudioController.instance.PlaySFX(1);
                 // GoTo Trashcan
