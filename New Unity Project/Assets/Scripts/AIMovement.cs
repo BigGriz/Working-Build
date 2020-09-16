@@ -29,7 +29,7 @@ public class AIMovement : MonoBehaviour
     Animator animator;
     ColliderController cc;
 
-    float nextWaypointDistance = 0.13f;
+    float nextWaypointDistance = 0.10f;
     Path path;
     int currentWaypoint = 0;
     bool reachedEnd = false;
@@ -46,7 +46,7 @@ public class AIMovement : MonoBehaviour
     {
         globalInfo = CallbackHandler.instance.globalInfo;
 
-        InvokeRepeating("UpdatePath", 0.0f, 0.5f);
+        InvokeRepeating("UpdatePath", 0.0f, 0.2f);
     }
     #endregion
 
@@ -131,6 +131,33 @@ public class AIMovement : MonoBehaviour
                     speed = idleSpeed;
                     return;
                 }
+                if (!paused)
+                {
+                    float distance = Vector2.Distance(rb.position, target.transform.position);
+                    if (distance < nextWaypointDistance * 5)
+                    {
+                        PlayerMovement player = target.GetComponent<PlayerMovement>();
+                        // Swap items with Panda
+                        if (player.carriedItem)
+                        {
+                            player.carriedItem.DropMe();
+                            carriedItem = player.carriedItem;
+                            player.carriedItem = null;
+                            carriedItem.CarryMe(this.transform);
+                        }
+                        AudioController.instance.QuickFadeToBGM();
+                        AudioController.instance.PlaySFX(1);
+                        // GoTo Trashcan
+                        target = trashCan;
+
+                        currentWaypoint = 0;
+                        UpdatePath();
+
+                        // End Chase
+                        chasing = false;
+                        return;
+                    }
+                }
             }
         }
 
@@ -140,25 +167,35 @@ public class AIMovement : MonoBehaviour
         {
             if (chasing)
             {
-                PlayerMovement player = target.GetComponent<PlayerMovement>();
-                // Swap items with Panda
-                if (player.carriedItem)
+                float distance = Vector2.Distance(rb.position, target.transform.position);
+                if (distance < nextWaypointDistance * 5)
                 {
-                    player.carriedItem.DropMe();
-                    carriedItem = player.carriedItem;
-                    player.carriedItem = null;
-                    carriedItem.CarryMe(this.transform);
-                }
-                AudioController.instance.QuickFadeToBGM();
-                AudioController.instance.PlaySFX(1);
-                // GoTo Trashcan
-                target = trashCan;
-                currentWaypoint = 0;
-                UpdatePath();
+                    PlayerMovement player = target.GetComponent<PlayerMovement>();
+                    // Swap items with Panda
+                    if (player.carriedItem)
+                    {
+                        player.carriedItem.DropMe();
+                        carriedItem = player.carriedItem;
+                        player.carriedItem = null;
+                        carriedItem.CarryMe(this.transform);
+                    }
+                    AudioController.instance.QuickFadeToBGM();
+                    AudioController.instance.PlaySFX(1);
+                    // GoTo Trashcan
+                    target = trashCan;
 
-                // End Chase
-                chasing = false;
-                return;
+                    currentWaypoint = 0;
+                    UpdatePath();
+
+                    // End Chase
+                    chasing = false;
+                    return;
+                }
+                else
+                {
+                    currentWaypoint = 0;
+                    UpdatePath();
+                }
             }
             else
             {
@@ -211,14 +248,7 @@ public class AIMovement : MonoBehaviour
             rb.MovePosition(newPos);
             // Next Waypoint
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-            if (currentWaypoint >= path.vectorPath.Count - 2)
-            {
-                if (distance < nextWaypointDistance * 4)
-                {
-                    currentWaypoint++;
-                }
-            }
-            else if (distance < nextWaypointDistance)
+            if (distance < nextWaypointDistance)
             {
                 currentWaypoint++;
             }
