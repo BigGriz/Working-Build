@@ -19,7 +19,10 @@ public class EndMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioController.instance.PlaySFX(1);
+            if (AudioController.instance)
+            {
+                AudioController.instance.PlaySFX(1);
+            }
             NextScreen();
         }
     }
@@ -30,6 +33,7 @@ public class EndMenu : MonoBehaviour
 
         if (index == 1)
         {
+            fader.FadeIn();
             thanks.SetActive(false);
             endNotice.SetActive(true);
         }

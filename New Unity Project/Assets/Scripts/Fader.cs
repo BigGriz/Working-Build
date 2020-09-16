@@ -29,4 +29,9 @@ public class Fader : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(level);
     }
+
+    public void FadeIn()
+    {
+        animator.SetTrigger("FadeIn");
+    }
 }
