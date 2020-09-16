@@ -6,6 +6,7 @@ public class PlayerRenderer : MonoBehaviour
 {
     // Object in front of character
     private GameObject obj;
+    private PlayerRenderer character;
     [HideInInspector] public List<Collider2D> triggers;
     #region Setup
     private SpriteRenderer spriteRenderer;
@@ -14,7 +15,6 @@ public class PlayerRenderer : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         pm = GetComponent<PlayerMovement>();
-
     }
     #endregion Setup
 
@@ -33,6 +33,18 @@ public class PlayerRenderer : MonoBehaviour
                 obj.GetComponent<SpriteRenderer>().sharedMaterial.SetVector("_FadeOrigin", transform.position);
             }
         }
+
+        if (character != null)
+        {
+            if (transform.position.y > character.transform.position.y)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+            }
+        }
     }
 
     #region Triggers
@@ -42,6 +54,11 @@ public class PlayerRenderer : MonoBehaviour
         {
             triggers.Add(collision);
             obj = collision.gameObject;
+        }
+
+        if (collision.GetComponent<PlayerRenderer>())
+        {
+            character = collision.GetComponent<PlayerRenderer>();
         }
     }
 
@@ -59,6 +76,11 @@ public class PlayerRenderer : MonoBehaviour
                 }
                 spriteRenderer.sortingOrder = 2;
             }
+        }
+
+        if (collision.GetComponent<PlayerRenderer>())
+        {
+            character = null;
         }
     }
     #endregion Triggers

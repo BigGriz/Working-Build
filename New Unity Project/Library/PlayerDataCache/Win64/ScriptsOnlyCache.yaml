@@ -33,6 +33,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -1028,7 +1030,7 @@ ScriptsOnlyBuild:
     className: Timer
   - hash:
       serializedVersion: 2
-      Hash: 86ed72c4aa131891e2c7a5d414779c9d
+      Hash: 449c7ac2db6585f2d501199668500762
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rubbish
@@ -1076,7 +1078,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: cdff62dcbe825742fa4234211100ff6c
+      Hash: de9de1d7e11b9b998af79f2b32c14478
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EndMenu

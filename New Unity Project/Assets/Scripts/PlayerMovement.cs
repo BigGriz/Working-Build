@@ -215,7 +215,9 @@ public class PlayerMovement : MonoBehaviour
     // Check for Overlap
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Rubbish"))
+        Rubbish rubbish = collision.GetComponent<Rubbish>();
+
+        if (rubbish && !rubbish.inBin)
         {
             rubbishList.Add(collision.GetComponent<Rubbish>());
         }
@@ -224,9 +226,14 @@ public class PlayerMovement : MonoBehaviour
     // Check for Exit
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Rubbish"))
+        Rubbish rubbish = collision.GetComponent<Rubbish>();
+
+        if (rubbish)
         {
-            rubbishList.Remove(collision.GetComponent<Rubbish>());
+            if (rubbishList.Contains(rubbish))
+            {
+                rubbishList.Remove(collision.GetComponent<Rubbish>());
+            }
         }
     }
 

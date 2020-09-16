@@ -9,6 +9,7 @@ public class Rubbish : MonoBehaviour
     public Transform character;
     public bool carried;
     public bool hidden;
+    public bool inBin;
     [Header("Required Fields")]
     public Vector3 xOffset;
     public float dropAmount = 0.1f;
@@ -48,6 +49,7 @@ public class Rubbish : MonoBehaviour
     {
         character = _character;
         carried = true;
+        inBin = false;
 
         xOffset = _character.GetComponent<PlayerMovement>() ? xOffset = _character.GetComponent<PlayerMovement>().xOffset : Vector3.zero;
 
@@ -73,6 +75,7 @@ public class Rubbish : MonoBehaviour
     {
         character = null;
         carried = false;
+        inBin = true;
 
         CallbackHandler.instance.globalInfo.RemoveRubbish(this);
         spriteRenderer.enabled = false;
