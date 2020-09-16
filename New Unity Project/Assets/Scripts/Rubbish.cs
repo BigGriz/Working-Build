@@ -50,6 +50,12 @@ public class Rubbish : MonoBehaviour
         carried = true;
 
         xOffset = _character.GetComponent<PlayerMovement>() ? xOffset = _character.GetComponent<PlayerMovement>().xOffset : Vector3.zero;
+
+        if (GetComponentInChildren<Glow>())
+        {
+            CallbackHandler.instance.globalInfo.objStage = 1;
+        }
+
     }
 
     public void DropMe()

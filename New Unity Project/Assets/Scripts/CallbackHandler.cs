@@ -39,6 +39,7 @@ public class CallbackHandler : MonoBehaviour
             SpawnTrash();
         }
         SetTrashText();
+        globalInfo.objStage = 0;
     }
 
     private void Update()
@@ -113,6 +114,8 @@ public class CallbackHandler : MonoBehaviour
     {
         if (storeTrash != null)
         {
+            globalInfo.objStage = 2;
+            
             storeTrash(_rubbish);
             SetTrashText();
         }

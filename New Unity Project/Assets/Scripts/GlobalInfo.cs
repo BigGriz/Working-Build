@@ -12,6 +12,8 @@ public class GlobalInfo : ScriptableObject
     public int trashCollected;
     public int totalTrash;
 
+    public int objStage = 0;
+
     public void ClearList()
     {
         rubbishList.Clear();
