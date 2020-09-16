@@ -5,6 +5,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public float timer = 61.0f;
+    public float trashTimer = 20.0f;
     TMPro.TextMeshProUGUI text;
 
     private void Awake()
@@ -21,6 +22,12 @@ public class Timer : MonoBehaviour
         if (timer >= 1.0f)
         {
             timer -= Time.deltaTime;
+            trashTimer -= Time.deltaTime;
+            if (trashTimer <= 0)
+            {
+                CallbackHandler.instance.SpawnTrash();
+                trashTimer = 20.0f;
+            }
             text.SetText(Mathf.FloorToInt(timer).ToString());
         }
         else

@@ -22,6 +22,7 @@ public class Fader : MonoBehaviour
         animator.SetTrigger("FadeOut");
         level = _level;
     }
+
     public void LevelTransition()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(level);

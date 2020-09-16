@@ -360,6 +360,7 @@ MonoBehaviour:
   mainMenuImage: {fileID: 1978186630}
   controlsMenuImage: {fileID: 884872998}
   fader: {fileID: 1208993631}
+  globalInfo: {fileID: 11400000, guid: 15040299f19c92c4f9681860720b8adb, type: 2}
 --- !u!114 &967366456
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class StartLevel : MonoBehaviour
 
     private void Start()
     {
-        //text.SetText(CallbackHandler.instance.globalInfo.currentLevel.ToString());
+        text.SetText("LOCKDOWN LEVEL " + CallbackHandler.instance.globalInfo.lockdownLevel.ToString());
     }
 
     public void StartUp()

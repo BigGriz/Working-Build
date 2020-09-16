@@ -8,10 +8,12 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuImage;
     public GameObject controlsMenuImage;
     public Fader fader;
+    public GlobalInfo globalInfo;
 
     private void Start()
     {
         controlsMenuImage.SetActive(false);
+        globalInfo.lockdownLevel = 0;
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (index == 2)
         {
-            fader.ChangeLevel("WorkingScene");  
+            fader.ChangeLevel("Level1");  
         }
     } 
 }
