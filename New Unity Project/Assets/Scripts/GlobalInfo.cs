@@ -6,6 +6,7 @@ using UnityEngine;
 public class GlobalInfo : ScriptableObject
 {
     public bool gamePaused;
+    public int lockdownLevel;
 
     public List<Rubbish> rubbishList;
     public int trashCollected;

@@ -126,7 +126,7 @@ public class AIMovement : MonoBehaviour
             {
                 PlayerMovement player = target.GetComponent<PlayerMovement>();
                 // Swap items with Panda
-                if (carriedItem)
+                if (player.carriedItem)
                 {
                     player.carriedItem.DropMe();
                     carriedItem = player.carriedItem;

@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Required Fields")]
     public float moveSpeed = 2.5f;
     public bool hidden;
+    public float sprintTimer = 0.0f;
+    public float sprintSpeed = 4.0f;
+    public float normalSpeed = 2.0f;
+    public bool sprinting;
+    public float sprintCooldown = 3.0f;
 
     // Input
     float horizontalInput;
@@ -93,6 +98,41 @@ public class PlayerMovement : MonoBehaviour
                 }
                 carriedItem = null;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (sprintCooldown <= 0 && sprintTimer > 0)
+            {
+                sprinting = true;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sprinting = false;
+        }
+
+        if (sprintTimer <= 0)
+        {
+            sprintCooldown = 2.0f;
+            sprinting = false;
+        }
+
+        if (!sprinting && sprintTimer < 1.0f)
+        {
+            moveSpeed = normalSpeed;
+            sprintTimer += Time.deltaTime;
+            sprintCooldown -= Time.deltaTime;
+        }
+        else if (sprinting)
+        {
+            moveSpeed = sprintSpeed;
+            sprintTimer -= Time.deltaTime;
+        }
+        else
+        {
+            moveSpeed = normalSpeed;
+            sprintCooldown -= Time.deltaTime;
         }
     }
 

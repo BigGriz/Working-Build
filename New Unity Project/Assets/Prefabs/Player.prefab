@@ -156,8 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a6c35585f04b41aeb363b6baa4dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 2
   hidden: 0
+  sprintTimer: 1
+  sprintSpeed: 4
+  normalSpeed: 2
+  sprinting: 0
+  sprintCooldown: 0
+  inputVector: {x: 0, y: 0}
   xOffset: {x: 0.32, y: 0, z: 0}
   rubbishList: []
   rubbish: {fileID: 0}

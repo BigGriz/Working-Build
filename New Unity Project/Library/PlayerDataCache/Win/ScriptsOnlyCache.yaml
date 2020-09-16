@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - EndGameText
     - EndMenu
     - Fader
+    - FollowCamera
     - GlobalInfo
     - IdlePositions
     - MainMenu
@@ -29,6 +30,7 @@ ScriptsOnlyBuild:
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -284,6 +286,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15276}
     - Class: 114
       Script: {instanceID: 15366}
+    - Class: 114
+      Script: {instanceID: 32868}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1091,7 +1095,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 7966faca821e5d6f6395fb19678de721
+      Hash: 12fa1c40ddd1771271530487d860f2d2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GlobalInfo
@@ -1101,6 +1105,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0e697dc1f9995d7f00666b49facea418
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FollowCamera
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main.unity
