@@ -24,10 +24,10 @@ public class PlayerRenderer : MonoBehaviour
         {
             if (transform.position.y > obj.transform.position.y)
             {
-                spriteRenderer.sortingOrder = 0;
+                spriteRenderer.sortingOrder = 1;
                 if (pm && pm.carriedItem)
                 {
-                    pm.carriedItem.SetOrder(0);
+                    pm.carriedItem.SetOrder(1);
                 }
 
                 obj.GetComponent<SpriteRenderer>().sharedMaterial.SetVector("_FadeOrigin", transform.position);
@@ -55,9 +55,9 @@ public class PlayerRenderer : MonoBehaviour
                 obj = null;
                 if (pm && pm.carriedItem)
                 {
-                    pm.carriedItem.SetOrder(1);
+                    pm.carriedItem.SetOrder(2);
                 }
-                spriteRenderer.sortingOrder = 1;
+                spriteRenderer.sortingOrder = 2;
             }
         }
     }

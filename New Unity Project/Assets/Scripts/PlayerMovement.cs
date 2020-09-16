@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+
     [Header("Required Fields")]
     public float moveSpeed = 2.5f;
     public bool hidden;
@@ -26,11 +28,23 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Rubbish carriedItem;
 
     #region Setup
+    public static PlayerMovement instance;
+
     private Rigidbody2D rb;
     private Animator animator;
     private AudioSource audio;
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("Multiple Characters! ABORT ABORT!");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
@@ -132,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (sprintTimer <= 0)
         {
-            sprintCooldown = 2.0f;
+            sprintCooldown = 1.0f;
             sprinting = false;
         }
 

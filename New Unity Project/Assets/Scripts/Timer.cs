@@ -20,7 +20,10 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (CallbackHandler.instance.globalInfo.gamePaused)
+        {
+            GetComponent<AudioSource>().Stop();
             return;
+        }
 
         if (timer <= 15.0f && !playSound)
         {

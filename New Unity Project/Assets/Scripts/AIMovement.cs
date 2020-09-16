@@ -123,6 +123,7 @@ public class AIMovement : MonoBehaviour
                     {
                         animator.SetTrigger("Question");
                         AudioController.instance.PlaySFX(0);
+                        AudioController.instance.QuickFadeToBGM();
 
                         allowMovement = false;
                         chasing = false;

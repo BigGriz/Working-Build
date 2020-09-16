@@ -60,6 +60,9 @@ public class CallbackHandler : MonoBehaviour
 
     public void Transition()
     {
+        AudioController.instance.bgm.final = true;
+        AudioController.instance.QuickFadeToBGM();
+
         if (globalInfo.CheckWin())
         {
             switch (globalInfo.lockdownLevel + 1)
@@ -93,7 +96,7 @@ public class CallbackHandler : MonoBehaviour
         }
         else
         {
-            fader.ChangeLevel("End");
+            fader.ChangeLevel("Lose");
         }
     }
 

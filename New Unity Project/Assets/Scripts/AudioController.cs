@@ -6,14 +6,15 @@ public class AudioController : MonoBehaviour
 {
     #region Singleton
     public static AudioController instance;
-    BGM bgm;
+    public BGM bgm;
     SFX sfx;
     private void Awake()
     {
         if (instance != null)
         {
             Debug.LogError("More than one AudioController exists!");
-            Destroy(this.gameObject);
+            Destroy(instance.gameObject);
+            instance = this;
         }
         else
         {
@@ -38,7 +39,7 @@ public class AudioController : MonoBehaviour
 
     public void FadeToBGM()
     {
-        bgm.FadeToBGM(3.0f);
+        bgm.FadeToBGM(2.0f);
     }
     public void QuickFadeToBGM()
     {
