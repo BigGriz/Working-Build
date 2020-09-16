@@ -6,11 +6,17 @@ public class Trashcan : MonoBehaviour
 {
     public bool inRange;
     PlayerMovement trashPanda;
+    SpriteRenderer spriteRenderer;
+
+    public Sprite empty;
+    public Sprite full;
+
 
     public List<Rubbish> rubbish;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         CallbackHandler.instance.takeTrash += TakeTrash;
     }
 
@@ -28,6 +34,10 @@ public class Trashcan : MonoBehaviour
             trashPanda.carriedItem.Setup();
             trashPanda.carriedItem.CarryMe(trashPanda.transform);
             rubbish.Remove(trashPanda.carriedItem);
+            if (rubbish.Count == 0)
+            {
+                spriteRenderer.sprite = empty;
+            }
         }
     }
 
@@ -35,6 +45,7 @@ public class Trashcan : MonoBehaviour
     {
         rubbish.Add(_rubbish);
         _rubbish.CleanUp();
+        spriteRenderer.sprite = full;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

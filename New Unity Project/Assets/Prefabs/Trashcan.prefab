@@ -113,4 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  empty: {fileID: 21300000, guid: 0277e9f3c36bf1c4cb5226af42859fbd, type: 3}
+  full: {fileID: 21300000, guid: 4d032d426cf861444a1ea9b5d02c5581, type: 3}
   rubbish: []
