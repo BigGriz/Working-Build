@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
             if (trashTimer <= 0)
             {
                 CallbackHandler.instance.SpawnTrash();
-                trashTimer = 20.0f;
+                trashTimer = 30.0f / CallbackHandler.instance.globalInfo.lockdownLevel;
             }
             text.SetText(Mathf.FloorToInt(timer).ToString());
         }

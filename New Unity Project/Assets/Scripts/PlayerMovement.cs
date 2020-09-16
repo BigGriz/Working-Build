@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     public Rubbish rubbish;
     public bool inRange;
     public bool atBurrow;
-    [HideInInspector] public Rubbish carriedItem;
+    //[HideInInspector]
+    public Rubbish carriedItem;
+    public float haxBlocker;
 
     #region Setup
     public static PlayerMovement instance;
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CallbackHandler.instance.globalInfo.gamePaused)
             return;
+
+        haxBlocker -= Time.deltaTime;
 
         // Get Current Input
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -104,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
                     carriedItem.CarryMe(this.transform);
                 }
                 audio.Play();
+                haxBlocker = 1.0f;
             }
             else if (!carriedItem && inRange)
             {
@@ -112,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     audio.Play();
                 }
+                haxBlocker = 1.0f;
             }
             else if (carriedItem)
             {
@@ -121,14 +127,18 @@ public class PlayerMovement : MonoBehaviour
                     AudioController.instance.PlaySFX(2);
                     audio.Play();
                     AudioController.instance.FadeToBGM();
+                    carriedItem = null;
                 }
                 else
                 {
-                    carriedItem.DropMe();
-                    audio.Play();
-                    AudioController.instance.FadeToBGM();
-                }
-                carriedItem = null;
+                    if (haxBlocker <= 0.0f)
+                    {
+                        carriedItem.DropMe();
+                        audio.Play();
+                        AudioController.instance.FadeToBGM();
+                        carriedItem = null;
+                    }
+                }            
             }
         }
 
@@ -141,6 +151,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            if (sprintCooldown <= 0.0f)
+            {
+                sprintCooldown = 1.0f;
+            }
             sprinting = false;
         }
 
@@ -159,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
         else if (sprinting)
         {
             moveSpeed = sprintSpeed;
-            sprintTimer -= Time.deltaTime;
+            sprintTimer -= Time.deltaTime * 2;
         }
         else
         {

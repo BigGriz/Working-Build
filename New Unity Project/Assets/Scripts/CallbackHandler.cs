@@ -34,12 +34,13 @@ public class CallbackHandler : MonoBehaviour
 
     public void StartUpCalls()
     {
-        for (int i = 4; i > globalInfo.lockdownLevel; i--)
+        for (int i = 5; i > globalInfo.lockdownLevel; i--)
         {
             SpawnTrash();
         }
         SetTrashText();
         globalInfo.objStage = 0;
+        AudioController.instance.bgm.final = false;
     }
 
     private void Update()
@@ -54,6 +55,11 @@ public class CallbackHandler : MonoBehaviour
     {
         SetGGText(globalInfo.CheckWin());
         globalInfo.gamePaused = true;
+        if (globalInfo.CheckWin())
+        {
+            AudioController.instance.bgm.final = false;
+            AudioController.instance.FadeToBGM();
+        }
 
         Invoke("Transition", 3.0f);
     }

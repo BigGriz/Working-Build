@@ -179,6 +179,7 @@ public class AIMovement : MonoBehaviour
                         carriedItem = player.carriedItem;
                         player.carriedItem = null;
                         carriedItem.CarryMe(this.transform);
+                        player.haxBlocker = 1.0f;
                     }
                     AudioController.instance.QuickFadeToBGM();
                     AudioController.instance.PlaySFX(1);

@@ -71,6 +71,9 @@ public class Rubbish : MonoBehaviour
 
     public void CleanUp()
     {
+        character = null;
+        carried = false;
+
         CallbackHandler.instance.globalInfo.RemoveRubbish(this);
         spriteRenderer.enabled = false;
     }
